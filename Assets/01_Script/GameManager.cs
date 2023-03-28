@@ -1,18 +1,51 @@
+using sound;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace game_manager
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        
-    }
+        [Header("Managers")]
+        [SerializeField] UI_Manager uiManager = null;
+        [SerializeField] SoundManager soundManager = null;
+        [SerializeField] PlayerManager playerManager = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameState gameState;
+
+        private void Awake()
+        {
+            if (uiManager == null) uiManager = GetComponentInChildren<UI_Manager>();
+            if (soundManager == null) soundManager = GetComponentInChildren<SoundManager>();
+            if (playerManager == null) playerManager = FindObjectOfType<PlayerManager>();
+
+            gameState = ResourcesManager.Instance.State;
+        }
+
+        private void Start()
+        {
+            BindUI_Events();
+            BindPlayer_Events();
+            BindSound_Events();
+        }
+
+        private void BindSound_Events()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindPlayer_Events()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindUI_Events()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+
+
