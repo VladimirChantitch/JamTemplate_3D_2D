@@ -1,4 +1,5 @@
 using sound;
+using ui;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace game_manager
         [SerializeField] PlayerManager playerManager = null;
 
         GameState gameState;
+        GameSubState gameSubState;
 
         private void Awake()
         {
@@ -22,6 +24,7 @@ namespace game_manager
             if (playerManager == null) playerManager = FindObjectOfType<PlayerManager>();
 
             gameState = ResourcesManager.Instance.State;
+            gameSubState = ResourcesManager.Instance.SubState;
         }
 
         private void Start()

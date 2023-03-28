@@ -20,9 +20,20 @@ public class ResourcesManager : MonoBehaviour
 
     [Header("State")]
     [SerializeField] GameState state;
+    [SerializeField] GameSubState subState;
+
     /// <summary>
     /// The actual state of your game
     /// </summary>
     public GameState State { get => state; }
 
+    /// <summary>
+    /// The actual sub state of your game
+    /// </summary>
+    public GameSubState SubState { get => subState; }
+
+    public void ChangeSubState(GameSubState subState)
+    {
+        this.subState = subState;
+    }
 }

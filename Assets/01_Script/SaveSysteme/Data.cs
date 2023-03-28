@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameState
+namespace data
 {
-    Start,
-    Game
+    public class Data
+    {
+
+    }
 }
+
