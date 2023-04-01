@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using player;
 using UnityEngine.SceneManagement;
+using scene;
 
 namespace game_manager
 {
@@ -57,19 +58,26 @@ namespace game_manager
             BindSound_Events();
         }
 
+        #region Bindings
         private void BindSound_Events()
         {
-            throw new NotImplementedException();
+
         }
 
         private void BindPlayer_Events()
         {
-            throw new NotImplementedException();
+
         }
 
         private void BindUI_Events()
         {
-            throw new NotImplementedException();
+
+        }
+        #endregion
+
+        private void LoadScene(GameScene gameScene)
+        {
+            sceneHandler.LoadScene(gameScene);
         }
     }
 }

@@ -19,6 +19,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// This class is there for you get info about your data
@@ -38,9 +39,14 @@ public class ResourcesManager : MonoBehaviour
             Destroy(Instance);
             Instance = this;
         }
+        else
+        {
+            Instance = this; 
+        }
     }
     #endregion
 
+    #region State
     [Header("State")]
     [SerializeField] GameScene state;
     [SerializeField] GameState subState;
@@ -59,15 +65,16 @@ public class ResourcesManager : MonoBehaviour
     {
         this.subState = subState;
     }
+    #endregion
 
+    #region Scene
     [Header("Scenes")]
     [SerializeField] scene_binding[] scenes;
 
     /// <summary>
     /// To get the scene corresponding to your scene enum
     /// </summary>
-    /// <param name="gameScene">returns null if no scene can be found</param>
-    /// <returns></returns>
+    /// <returns>returns null if no scene can be found</returns>
     public string GetScene(GameScene gameScene)
     {
         if (scenes != null)
@@ -96,4 +103,45 @@ public class ResourcesManager : MonoBehaviour
         public GameScene GameScene { get => scene;  }
         public string SCENE_NAME { get => scene_name;  }
     }
+    #endregion
+
+    #region UI
+    [Header("UI_templates")]
+    [SerializeField] template_binding[] templates;
+
+    /// <summary>
+    /// To get the Region corresponding to your scene enum
+    /// </summary>
+    /// <returns>  returns null if no template can be found</returns>
+    public VisualTreeAsset GetTemplate(GameState gameState, GameScene gameScene)
+    {
+        if (templates != null)
+        {
+            for(int i = 0; i< templates.Length; i++)
+            {
+                if (templates[i].GameScene == gameScene && templates[i].State == gameState)
+                {
+                    return templates[i].Template;
+                }
+                else
+                {
+                    Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
+                }
+            }
+        }
+        return null;
+    }
+
+    [Serializable]
+    public class template_binding
+    {
+        [SerializeField] GameScene scene;
+        [SerializeField] GameState state;
+        [SerializeField] VisualTreeAsset template;
+
+        public GameScene GameScene { get => scene; }
+        public GameState State { get => state;  }
+        public VisualTreeAsset Template { get => template; }
+    }
+    #endregion
 }
