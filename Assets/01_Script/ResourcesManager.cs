@@ -48,22 +48,22 @@ public class ResourcesManager : MonoBehaviour
 
     #region State
     [Header("State")]
-    [SerializeField] GameScene state;
-    [SerializeField] GameState subState;
+    [SerializeField] GameScene sceneState;
+    [SerializeField] GameState gameState;
 
     /// <summary>
     /// The actual state of your game
     /// </summary>
-    public GameScene State { get => state; }
+    public GameScene SceneState { get => sceneState; }
 
     /// <summary>
     /// The actual sub state of your game
     /// </summary>
-    public GameState SubState { get => subState; }
+    public GameState GameState { get => gameState; }
 
     public void ChangeSubState(GameState subState)
     {
-        this.subState = subState;
+        this.gameState = subState;
     }
     #endregion
 
@@ -113,13 +113,36 @@ public class ResourcesManager : MonoBehaviour
     /// To get the Region corresponding to your scene enum
     /// </summary>
     /// <returns>  returns null if no template can be found</returns>
-    public VisualTreeAsset GetTemplate(GameState gameState, GameScene gameScene)
+    public VisualTreeAsset GetTemplate(GameState gameState)
     {
         if (templates != null)
         {
             for(int i = 0; i< templates.Length; i++)
             {
-                if (templates[i].GameScene == gameScene && templates[i].State == gameState)
+                if (templates[i].State == gameState)
+                {
+                    return templates[i].Template;
+                }
+                else
+                {
+                    Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
+                }
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// To get the Region corresponding to your scene enum
+    /// </summary>
+    /// <returns>  returns null if no template can be found</returns>
+    public VisualTreeAsset GetTemplate()
+    {
+        if (templates != null)
+        {
+            for (int i = 0; i < templates.Length; i++)
+            {
+                if (templates[i].State == gameState)
                 {
                     return templates[i].Template;
                 }
@@ -135,11 +158,9 @@ public class ResourcesManager : MonoBehaviour
     [Serializable]
     public class template_binding
     {
-        [SerializeField] GameScene scene;
         [SerializeField] GameState state;
         [SerializeField] VisualTreeAsset template;
 
-        public GameScene GameScene { get => scene; }
         public GameState State { get => state;  }
         public VisualTreeAsset Template { get => template; }
     }

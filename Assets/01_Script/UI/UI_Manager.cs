@@ -28,9 +28,36 @@ namespace ui
     [RequireComponent(typeof(UIDocument))]
     public class UI_Manager : MonoBehaviour
     {
+        [SerializeField] UIDocument ui_Doc = null;
+        VisualElement currentRoot = null;
+
         public void Awake()
         {
-            
+            if (ui_Doc == null) GetComponent<UIDocument>();
+        }
+
+        public void ChangeUITemplate()
+        {
+            ui_Doc.visualTreeAsset = ResourcesManager.Instance.GetTemplate();
+            currentRoot = ui_Doc.rootVisualElement;
+            RebindUI(ResourcesManager.Instance.GameState);
+        }
+
+        private void RebindUI(GameState gameState)
+        {
+            switch (gameState)
+            {
+                case GameState.None:
+                    break;
+                case GameState.Playing:
+                    break;
+                case GameState.Loading:
+                    break;
+                case GameState.Win:
+                    break;
+                case GameState.Loose:
+                    break;
+            }
         }
     }
 }

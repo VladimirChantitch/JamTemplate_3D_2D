@@ -36,8 +36,8 @@ namespace game_manager
         [SerializeField] SceneHandler sceneHandler = null;
         [SerializeField] SaveManager saveManager = null;
 
-        GameScene gameState;
-        GameState gameSubState;
+        GameScene sceneState;
+        GameState gameState;
 
         private void Awake()
         {
@@ -47,8 +47,8 @@ namespace game_manager
             if (sceneHandler == null) sceneHandler = GetComponentInChildren<SceneHandler>();
             if(saveManager == null) saveManager = GetComponentInChildren<SaveManager>();
 
-            gameState = ResourcesManager.Instance.State;
-            gameSubState = ResourcesManager.Instance.SubState;
+            sceneState = ResourcesManager.Instance.SceneState;
+            gameState = ResourcesManager.Instance.GameState;
         }
 
         private void Start()

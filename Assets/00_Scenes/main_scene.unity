@@ -196,11 +196,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f02ccbe2b0c73458ed5d80fdf2cec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 2
   subState: 0
   scenes:
   - scene: 2
     scene_name: main_scene
+  templates:
+  - state: 3
+    template: {fileID: 9197481963319205126, guid: fd2e1ac0165990f4b98933ae5a5eac90, type: 3}
+  - state: 4
+    template: {fileID: 9197481963319205126, guid: 49c7d41c4b177cc43bfa7e16e220a022, type: 3}
 --- !u!4 &285853165
 Transform:
   m_ObjectHideFlags: 0
@@ -707,6 +712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98cd1095676ac74d8f0f8ccd02ce3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLoadANewScene:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1768444881
 GameObject:
   m_ObjectHideFlags: 0
