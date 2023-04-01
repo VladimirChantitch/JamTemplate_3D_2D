@@ -158,10 +158,10 @@ public class ResourcesManager : MonoBehaviour
     [Serializable]
     public class template_binding
     {
-        [SerializeField] GameState state;
+        [SerializeField] GameState gameState;
         [SerializeField] VisualTreeAsset template;
 
-        public GameState State { get => state;  }
+        public GameState State { get => gameState;  }
         public VisualTreeAsset Template { get => template; }
     }
     #endregion

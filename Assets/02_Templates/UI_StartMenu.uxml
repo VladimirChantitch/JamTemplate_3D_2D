@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/02_Templates/main.uss?fileID=7433441132597879392&amp;guid=2f1b6ac39304b614592e9decf9ddb8af&amp;type=3#main" />
+    <ui.template.StartMenuElement class="menuBG">
+        <ui:VisualElement name="StartGame" class="buttonBG">
+            <ui:Button text="START" display-tooltip-when-elided="true" name="btn_start" class="button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="LoadGame" class="buttonBG">
+            <ui:Button text="LOAD" display-tooltip-when-elided="true" name="btn_load" class="button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Settings" class="buttonBG">
+            <ui:Button text="SETTINGS" display-tooltip-when-elided="true" name="btn_settings" class="button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Credits" class="buttonBG">
+            <ui:Button text="CREDITS" display-tooltip-when-elided="true" name="btn_credits" class="button" />
+        </ui:VisualElement>
+    </ui.template.StartMenuElement>
+</ui:UXML>

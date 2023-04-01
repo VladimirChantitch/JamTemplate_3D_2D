@@ -30,6 +30,9 @@ namespace ui
     {
         [SerializeField] UIDocument ui_Doc = null;
         VisualElement currentRoot = null;
+        AbstractTemplateElement currentTemplate = null;
+
+        public event Action<GameScene> onStartGame;
 
         public void Awake()
         {
@@ -38,26 +41,53 @@ namespace ui
 
         public void ChangeUITemplate()
         {
-            ui_Doc.visualTreeAsset = ResourcesManager.Instance.GetTemplate();
-            currentRoot = ui_Doc.rootVisualElement;
-            RebindUI(ResourcesManager.Instance.GameState);
+            VisualTreeAsset visualTreeAsset = ResourcesManager.Instance.GetTemplate();
+            if (visualTreeAsset != null)
+            {
+                ui_Doc.visualTreeAsset = visualTreeAsset;
+                currentRoot = ui_Doc.rootVisualElement;
+                RebindUI(ResourcesManager.Instance.GameState);
+            }
         }
 
         private void RebindUI(GameState gameState)
         {
-            switch (gameState)
+            currentTemplate = currentRoot.Q<AbstractTemplateElement>();
+            if (currentTemplate != null)
             {
-                case GameState.None:
-                    break;
-                case GameState.Playing:
-                    break;
-                case GameState.Loading:
-                    break;
-                case GameState.Win:
-                    break;
-                case GameState.Loose:
-                    break;
+                switch (currentTemplate)
+                {
+                    case StartMenuElement startMenuElement:
+                        InitStartMenu(startMenuElement);
+                        break;
+                    case WinMenuElement winMenuElement:
+                        InitWinMenu(winMenuElement);
+                        break;
+                    case LooseMenuElement looseMenuElement:
+                        InitLooseMenu(looseMenuElement);
+                        break;
+                }
             }
+            else
+            {
+                Debug.Log($"<color=red> YOU GOT NO aBSTRACT TEMPLATE ELEMENT </color>");
+            }
+        }
+
+        private void InitLooseMenu(LooseMenuElement looseMenuElement)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InitWinMenu(WinMenuElement winMenuElement)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InitStartMenu(StartMenuElement startMenuElement)
+        {
+            startMenuElement.Init();
+            startMenuElement.onStartButton += () => onStartGame?.Invoke(GameScene.Main_scene);
         }
     }
 }

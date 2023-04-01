@@ -73,7 +73,7 @@ namespace game_manager
 
         private void BindUI_Events()
         {
-
+            uiManager.onStartGame += scene => LoadScene(scene);
         }
         #endregion
 
