@@ -60,7 +60,7 @@ namespace game_manager
             ChangeTemplate();
         }
 
-        #region Bindings
+        #region EventBindings
         private void BindSound_Events()
         {
 
@@ -77,6 +77,7 @@ namespace game_manager
         }
         #endregion
 
+        #region Redistribution Methods
         private void LoadScene(GameScene gameScene)
         {
             sceneHandler.LoadScene(gameScene);
@@ -86,6 +87,7 @@ namespace game_manager
         {
             uiManager.ChangeUITemplate();
         }
+        #endregion
     }
 }
 
