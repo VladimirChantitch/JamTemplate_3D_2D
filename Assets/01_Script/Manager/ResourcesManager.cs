@@ -1,11 +1,30 @@
+/*   
+    GameJam template for unity project
+    Copyright (C) 2023  VladimirChantitch-MarmotteQuantique
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This class is their for you get info about your data
+/// This class is there for you get info about your data
 /// ex : scene state, so, ect... 
 /// Its a singleton only one can be activated at a time
+/// Its a don't destroy on load aswell
 /// </summary>
 public class ResourcesManager : MonoBehaviour
 {
@@ -14,26 +33,67 @@ public class ResourcesManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null)
+        {
+            Destroy(Instance);
+            Instance = this;
+        }
     }
     #endregion
 
     [Header("State")]
-    [SerializeField] GameState state;
-    [SerializeField] GameSubState subState;
+    [SerializeField] GameScene state;
+    [SerializeField] GameState subState;
 
     /// <summary>
     /// The actual state of your game
     /// </summary>
-    public GameState State { get => state; }
+    public GameScene State { get => state; }
 
     /// <summary>
     /// The actual sub state of your game
     /// </summary>
-    public GameSubState SubState { get => subState; }
+    public GameState SubState { get => subState; }
 
-    public void ChangeSubState(GameSubState subState)
+    public void ChangeSubState(GameState subState)
     {
         this.subState = subState;
+    }
+
+    [Header("Scenes")]
+    [SerializeField] scene_binding[] scenes;
+
+    /// <summary>
+    /// To get the scene corresponding to your scene enum
+    /// </summary>
+    /// <param name="gameScene">returns null if no scene can be found</param>
+    /// <returns></returns>
+    public string GetScene(GameScene gameScene)
+    {
+        if (scenes != null)
+        {
+            for(int i = 0; i< scenes.Length; i++)
+            {
+                if (scenes[i].GameScene == gameScene)
+                {
+                    return scenes[i].SCENE_NAME;
+                }
+                else
+                {
+                    Debug.Log($"<color=red> THE SCENE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
+                }
+            }
+        }
+        return null;
+    }
+
+    [Serializable]
+    public class scene_binding
+    {
+        [SerializeField] GameScene scene;
+        [SerializeField] string scene_name;
+
+        public GameScene GameScene { get => scene;  }
+        public string SCENE_NAME { get => scene_name;  }
     }
 }

@@ -9,10 +9,10 @@ namespace ui.template
     public class SO_Template : ScriptableObject
     {
         [SerializeField] private VisualTreeAsset _treeAsset;
-        [SerializeField] private GameSubState _subState;
+        [SerializeField] private GameState _subState;
 
         public VisualTreeAsset TreeAsset { get => _treeAsset; }
-        public GameSubState SubState { get => _subState; }
+        public GameState SubState { get => _subState; }
     }
 }
 

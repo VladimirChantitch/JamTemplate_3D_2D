@@ -21,6 +21,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using player;
+using UnityEngine.SceneManagement;
 
 namespace game_manager
 {
@@ -30,15 +32,19 @@ namespace game_manager
         [SerializeField] UI_Manager uiManager = null;
         [SerializeField] SoundManager soundManager = null;
         [SerializeField] PlayerManager playerManager = null;
+        [SerializeField] SceneHandler sceneHandler = null;
+        [SerializeField] SaveManager saveManager = null;
 
-        GameState gameState;
-        GameSubState gameSubState;
+        GameScene gameState;
+        GameState gameSubState;
 
         private void Awake()
         {
             if (uiManager == null) uiManager = GetComponentInChildren<UI_Manager>();
             if (soundManager == null) soundManager = GetComponentInChildren<SoundManager>();
             if (playerManager == null) playerManager = FindObjectOfType<PlayerManager>();
+            if (sceneHandler == null) sceneHandler = GetComponentInChildren<SceneHandler>();
+            if(saveManager == null) saveManager = GetComponentInChildren<SaveManager>();
 
             gameState = ResourcesManager.Instance.State;
             gameSubState = ResourcesManager.Instance.SubState;
