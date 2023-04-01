@@ -56,6 +56,8 @@ namespace game_manager
             BindUI_Events();
             BindPlayer_Events();
             BindSound_Events();
+
+            ChangeTemplate();
         }
 
         #region Bindings
@@ -78,6 +80,11 @@ namespace game_manager
         private void LoadScene(GameScene gameScene)
         {
             sceneHandler.LoadScene(gameScene);
+        }
+
+        private void ChangeTemplate()
+        {
+            uiManager.ChangeUITemplate();
         }
     }
 }
