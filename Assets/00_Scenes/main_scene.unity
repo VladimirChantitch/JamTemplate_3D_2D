@@ -197,10 +197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneState: 0
-  gameState: 1
+  gameState: 3
   scenes:
-  - scene: 2
-    scene_name: main_scene
+  - scene: 1
+    scene_name: start_scene
   templates:
   - gameState: 3
     template: {fileID: 9197481963319205126, guid: fd2e1ac0165990f4b98933ae5a5eac90, type: 3}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517f8d262338f0d419fcc834e0b67a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui_Doc: {fileID: 0}
+  ui_Doc: {fileID: 867985404}
 --- !u!114 &867985404
 MonoBehaviour:
   m_ObjectHideFlags: 0

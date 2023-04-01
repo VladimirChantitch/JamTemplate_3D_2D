@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/02_Templates/main.uss?fileID=7433441132597879392&amp;guid=2f1b6ac39304b614592e9decf9ddb8af&amp;type=3#main" />
+    <ui.template.WinMenuElement class="menuBG" style="flex-grow: 1; justify-content: flex-end; align-items: stretch;">
+        <ui:VisualElement name="Win" class="buttonBG" style="justify-content: flex-end; flex-grow: 0;">
+            <ui:Button text="MAIN MENU" display-tooltip-when-elided="true" name="btn_back_to_main" class="button" />
+        </ui:VisualElement>
+    </ui.template.WinMenuElement>
+</ui:UXML>

@@ -33,6 +33,7 @@ namespace ui
         AbstractTemplateElement currentTemplate = null;
 
         public event Action<GameScene> onStartGame;
+        public event Action<GameScene> onBackToMain;
 
         public void Awake()
         {
@@ -76,12 +77,14 @@ namespace ui
 
         private void InitLooseMenu(LooseMenuElement looseMenuElement)
         {
-            throw new NotImplementedException();
+            looseMenuElement.Init();
+            looseMenuElement.onBackToMainMenu += () => onBackToMain?.Invoke(GameScene.Start_scene);
         }
 
         private void InitWinMenu(WinMenuElement winMenuElement)
         {
-            throw new NotImplementedException();
+            winMenuElement.Init();
+            winMenuElement.onBackToMainMenu += () => onBackToMain?.Invoke(GameScene.Start_scene);
         }
 
         private void InitStartMenu(StartMenuElement startMenuElement)

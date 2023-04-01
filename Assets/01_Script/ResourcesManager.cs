@@ -123,11 +123,11 @@ public class ResourcesManager : MonoBehaviour
                 {
                     return templates[i].Template;
                 }
-                else
-                {
-                    Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
-                }
             }
+        }
+        else
+        {
+            Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
         }
         return null;
     }
@@ -146,11 +146,11 @@ public class ResourcesManager : MonoBehaviour
                 {
                     return templates[i].Template;
                 }
-                else
-                {
-                    Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
-                }
             }
+        }
+        else
+        {
+            Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
         }
         return null;
     }
