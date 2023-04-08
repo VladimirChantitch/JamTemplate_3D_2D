@@ -133,7 +133,7 @@ public class ResourcesManager : MonoBehaviour
     }
 
     /// <summary>
-    /// To get the Region corresponding to your scene enum
+    /// To get the Region corresponding to your Game State
     /// </summary>
     /// <returns>  returns null if no template can be found</returns>
     public VisualTreeAsset GetTemplate()
@@ -146,12 +146,9 @@ public class ResourcesManager : MonoBehaviour
                 {
                     return templates[i].Template;
                 }
-                else
-                {
-                    Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
-                }
             }
         }
+        Debug.Log($"<color=red> THE TEMPLATE YOU ARE TYING TO LOAD DOSEN4T EXIST </color>");
         return null;
     }
 

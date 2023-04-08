@@ -16,16 +16,19 @@
  */
 
 using inputs;
+using savesystem;
+using savesystem.dto;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace player
 {
-    public class PlayerManager : MonoBehaviour
+    public class PlayerManager : MonoBehaviour, ISavable
     {
         [SerializeField] InputManager inputManager;
 
+        [SerializeField] string Name;
 
         private void Start()
         {
@@ -47,6 +50,19 @@ namespace player
         private void OnInteract()
         {
             Debug.Log("Interact");
+        }
+
+        public Dto Save()
+        {
+            return new PlayerDto() { Name = Name };
+        }
+
+        public void Load(Dto dto)
+        {
+            if (dto is PlayerDto playerDto)
+            {
+                Name = playerDto.Name;
+            }
         }
     }
 }

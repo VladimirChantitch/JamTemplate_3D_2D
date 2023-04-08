@@ -70,7 +70,8 @@ namespace ui
             }
             else
             {
-                Debug.Log($"<color=red> YOU GOT NO aBSTRACT TEMPLATE ELEMENT </color>");
+                Debug.Log($"<color=red> YOU GOT NO aBSTRACT TEMPLATE ELEMENT </color>" +
+                    $"<color=green> please make one</color>");
             }
         }
 

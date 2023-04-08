@@ -202,7 +202,7 @@ MonoBehaviour:
   - scene: 2
     scene_name: main_scene
   templates:
-  - state: 0
+  - gameState: 0
     template: {fileID: 9197481963319205126, guid: 248e0a906e71dbf4ca531a355c7d9681, type: 3}
 --- !u!4 &285853165
 Transform:
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 867985403}
   soundManager: {fileID: 1323831927}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1768444883}
   sceneHandler: {fileID: 1369589536}
   saveManager: {fileID: 95559059}
 --- !u!4 &1912726806

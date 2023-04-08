@@ -206,6 +206,8 @@ MonoBehaviour:
     template: {fileID: 9197481963319205126, guid: fd2e1ac0165990f4b98933ae5a5eac90, type: 3}
   - gameState: 4
     template: {fileID: 9197481963319205126, guid: 49c7d41c4b177cc43bfa7e16e220a022, type: 3}
+  - gameState: 1
+    template: {fileID: 9197481963319205126, guid: 1f3ee94d0750ca445b1ac11efe86a9d3, type: 3}
 --- !u!4 &285853165
 Transform:
   m_ObjectHideFlags: 0
@@ -430,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517f8d262338f0d419fcc834e0b67a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui_Doc: {fileID: 0}
+  ui_Doc: {fileID: 867985404}
 --- !u!114 &867985404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 867985403}
   soundManager: {fileID: 1323831927}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1768444883}
   sceneHandler: {fileID: 1369589536}
   saveManager: {fileID: 95559059}
 --- !u!4 &1912726806
