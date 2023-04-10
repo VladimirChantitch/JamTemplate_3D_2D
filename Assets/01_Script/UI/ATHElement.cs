@@ -15,17 +15,17 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using savesystem.dto;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace savesystem
+namespace ui.template
 {
-    public interface ISavable
+    public class ATHElement : AbstractTemplateElement
     {
-        public Dto Save();
+        public new class UxmlFactory : UxmlFactory<ATHElement, ATHElement.UxmlTraits> { }
 
-        public void Load(Dto dto); 
+        public ATHElement() { }
     }
 }

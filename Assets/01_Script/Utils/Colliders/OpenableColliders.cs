@@ -15,17 +15,26 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using savesystem.dto;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace savesystem
+namespace utils.colliders
 {
-    public interface ISavable
+    public abstract class OpenableColliders : MonoBehaviour
     {
-        public Dto Save();
+        [SerializeField] Collider collider = null;
 
-        public void Load(Dto dto); 
+        public virtual void OpenCollider()
+        {
+            collider.enabled = true;
+        }
+
+        public virtual void CloseCollider()
+        {
+            collider.enabled = false;
+        }
     }
 }
+

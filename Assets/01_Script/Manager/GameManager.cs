@@ -24,6 +24,7 @@ using UnityEngine;
 using player;
 using UnityEngine.SceneManagement;
 using scene;
+using savesystem;
 
 namespace game_manager
 {
@@ -90,6 +91,22 @@ namespace game_manager
         private void ChangeTemplate()
         {
             uiManager.ChangeUITemplate();
+        }
+
+        /// <summary>
+        /// A method to call a save
+        /// </summary>
+        public void SaveGame()
+        {
+            saveManager.SaveGame();
+        }
+
+        /// <summary>
+        /// A method to call a load
+        /// </summary>
+        public void LoadGame()
+        {
+            saveManager.LoadGame();
         }
         #endregion
     }

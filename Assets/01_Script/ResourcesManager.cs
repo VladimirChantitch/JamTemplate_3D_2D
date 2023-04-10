@@ -133,7 +133,7 @@ public class ResourcesManager : MonoBehaviour
     }
 
     /// <summary>
-    /// To get the Region corresponding to your scene enum
+    /// To get the Region corresponding to your Game State
     /// </summary>
     /// <returns>  returns null if no template can be found</returns>
     public VisualTreeAsset GetTemplate()

@@ -15,17 +15,15 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using savesystem.dto;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace savesystem
+namespace savesystem.dto
 {
-    public interface ISavable
+    public class PlayerDto : Dto
     {
-        public Dto Save();
-
-        public void Load(Dto dto); 
+        public string Name;
     }
 }
+
