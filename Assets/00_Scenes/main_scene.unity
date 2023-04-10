@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneState: 0
-  gameState: 3
+  gameState: 4
   scenes:
   - scene: 1
     scene_name: start_scene
