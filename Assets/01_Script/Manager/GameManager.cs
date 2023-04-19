@@ -35,7 +35,7 @@ namespace game_manager
         [SerializeField] SoundManager soundManager = null;
         [SerializeField] PlayerManager playerManager = null;
         [SerializeField] SceneHandler sceneHandler = null;
-        [SerializeField] SaveManager saveManager = null;
+        [SerializeField] JSONSaveManager saveManager = null;
 
         GameScene sceneState;
         GameState gameState;
@@ -46,7 +46,7 @@ namespace game_manager
             if (soundManager == null) soundManager = GetComponentInChildren<SoundManager>();
             if (playerManager == null) playerManager = FindObjectOfType<PlayerManager>();
             if (sceneHandler == null) sceneHandler = GetComponentInChildren<SceneHandler>();
-            if(saveManager == null) saveManager = GetComponentInChildren<SaveManager>();
+            if(saveManager == null) saveManager = GetComponentInChildren<JSONSaveManager>();
 
             sceneState = ResourcesManager.Instance.SceneState;
             gameState = ResourcesManager.Instance.GameState;

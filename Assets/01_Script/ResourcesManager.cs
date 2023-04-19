@@ -165,4 +165,21 @@ public class ResourcesManager : MonoBehaviour
         public VisualTreeAsset Template { get => template; }
     }
     #endregion
+
+    #region audio
+    [SerializeField] List<soundDrawer> audioContainers = new List<soundDrawer>();
+
+    public soundDrawer GetAudio(string audioName)
+    {
+        return audioContainers.Find(tc => tc.name == audioName);
+    }
+
+    [Serializable]
+    public class soundDrawer
+    {
+        public string name;
+        public AudioClip clip;
+        public float disiredLenght;
+    }
+    #endregion
 }

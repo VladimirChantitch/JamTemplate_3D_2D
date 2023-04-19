@@ -13,7 +13,7 @@ namespace savesystem
     /// This is a simple save and load system in JSON string, but i would most advise you to 
     /// use Mongo Db realm if you wish expand your project after the jam
     /// </summary>
-    public class SaveManager : MonoBehaviour
+    public class JSONSaveManager : MonoBehaviour
     {
         List<Dto> dTOs = new List<Dto>();
         internal void LoadGame()
