@@ -1,4 +1,3 @@
-
 /*   
     GameJam template for unity project
     Copyright (C) 2023  VladimirChantitch-MarmotteQuantique
@@ -17,45 +16,57 @@
  */
 
 
+using Realms;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class ClignotteLight2D : MonoBehaviour
+namespace savesystem
 {
-    [SerializeField] Light2D currentLight;
-    [SerializeField] float speed;
-    bool isDecreasing;
-    [SerializeField] float min = 0;
-    [SerializeField] float max = 2;
-
-    private void Awake()
+    /// <summary>
+    /// Realm db getter
+    /// </summary>
+    public class RealmSaveManager : MonoBehaviour
     {
-        if (currentLight == null)
-        {
-            currentLight = GetComponent<Light2D>();
-        }
-    }
+        Realm realm;
 
-    private void Update()
-    {
-        if (isDecreasing)
+        private void OnEnable()
         {
-            currentLight.intensity -= Time.deltaTime * speed;
-            if (currentLight.intensity <= min)
+            var config = new RealmConfiguration
             {
-                isDecreasing = false;
+                ShouldDeleteIfMigrationNeeded = true,
+            };
+            realm = Realm.GetInstance(config);
+            //You can alwaysadd your crud instanciation here
+        }
+
+        private void OnDisable()
+        {
+            realm.Dispose();
+        }
+
+
+
+#if UNITY_EDITOR
+        [SerializeField] bool deleteDB;
+        private void Update()
+        {
+            if (deleteDB)
+            {
+                deleteDB = false;
+                removeAllInDb();
             }
         }
-        else
+
+        void removeAllInDb()
         {
-            currentLight.intensity += Time.deltaTime * speed;
-            if (currentLight.intensity >= max)
+            realm.Write(() =>
             {
-                currentLight.intensity = max;
-                isDecreasing = true;
-            }
+                realm.RemoveAll();
+            });
         }
+#endif
     }
 }
+
+
