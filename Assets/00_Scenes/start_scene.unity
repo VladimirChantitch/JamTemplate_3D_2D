@@ -204,6 +204,8 @@ MonoBehaviour:
   templates:
   - gameState: 0
     template: {fileID: 9197481963319205126, guid: 248e0a906e71dbf4ca531a355c7d9681, type: 3}
+  audioContainers: []
+  items: []
 --- !u!4 &285853165
 Transform:
   m_ObjectHideFlags: 0
@@ -796,6 +798,7 @@ GameObject:
   - component: {fileID: 1768444884}
   - component: {fileID: 1768444883}
   - component: {fileID: 1768444882}
+  - component: {fileID: 1768444885}
   m_Layer: 0
   m_Name: ======Player======
   m_TagString: Untagged
@@ -844,6 +847,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768444885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768444881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfad33abfef2014e8d55bf3041cf527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  wSize: 4
+  hSize: 4
 --- !u!1 &1912726804
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,7 +28,15 @@ namespace savesystem
     /// </summary>
     public class RealmSaveManager : MonoBehaviour
     {
+        public static RealmSaveManager Instance { get; private set; }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         Realm realm;
+        public Realm Realm => realm;
 
         private void OnEnable()
         {
@@ -37,15 +45,12 @@ namespace savesystem
                 ShouldDeleteIfMigrationNeeded = true,
             };
             realm = Realm.GetInstance(config);
-            //You can alwaysadd your crud instanciation here
         }
 
         private void OnDisable()
         {
             realm.Dispose();
         }
-
-
 
 #if UNITY_EDITOR
         [SerializeField] bool deleteDB;

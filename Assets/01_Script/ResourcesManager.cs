@@ -182,4 +182,16 @@ public class ResourcesManager : MonoBehaviour
         public float disiredLenght;
     }
     #endregion
+
+    #region Items
+    [SerializeField] List<ItemSO> items = new List<ItemSO>();
+
+    public void AddResource(ItemSO item)
+    {
+        if (!items.Contains(item))
+        {
+            items.Add(item);
+        }
+    }
+    #endregion
 }
