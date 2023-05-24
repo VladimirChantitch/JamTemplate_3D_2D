@@ -6,16 +6,21 @@ namespace sound
 {
     public class SoundManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private float m_MainAudioVolume;
+
+        [HideInInspector] public float MainAudioVolume
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            get { return m_MainAudioVolume; }
+            set { 
+                if (value > 100)
+                {
+                    m_MainAudioVolume = 100;
+                }
+                else
+                {
+                    m_MainAudioVolume = value;
+                }
+            }
         }
     }
 }

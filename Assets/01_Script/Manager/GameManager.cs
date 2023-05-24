@@ -15,7 +15,6 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using sound;
 using ui;
 using System;
 using System.Collections;
@@ -25,6 +24,7 @@ using player;
 using UnityEngine.SceneManagement;
 using scene;
 using savesystem;
+using sound;
 
 namespace game_manager
 {
@@ -32,7 +32,6 @@ namespace game_manager
     {
         [Header("Managers")]
         [SerializeField] UI_Manager uiManager = null;
-        [SerializeField] SoundManager soundManager = null;
         [SerializeField] PlayerManager playerManager = null;
         [SerializeField] SceneHandler sceneHandler = null;
         [SerializeField] JSONSaveManager saveManager = null;
@@ -43,7 +42,6 @@ namespace game_manager
         private void Awake()
         {
             if (uiManager == null) uiManager = GetComponentInChildren<UI_Manager>();
-            if (soundManager == null) soundManager = GetComponentInChildren<SoundManager>();
             if (playerManager == null) playerManager = FindObjectOfType<PlayerManager>();
             if (sceneHandler == null) sceneHandler = GetComponentInChildren<SceneHandler>();
             if(saveManager == null) saveManager = GetComponentInChildren<JSONSaveManager>();
